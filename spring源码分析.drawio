@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-05-05T09:41:24.751Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36" version="17.5.0" etag="cGkmBbPzM0M2DMjwFiW2" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2022-05-05T10:03:14.250Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36" version="17.5.0" etag="xABCL0yJjw1nSIKJQD-f" type="github" pages="5">
   <diagram id="OuHKB4TpfspXbUNequrL" name="总图">
-    <mxGraphModel dx="2500" dy="2065" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2181" dy="1895" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -94,9 +94,6 @@
         <mxCell id="qdsk7HPe0d01D8mTmjCl-12" value="解析FactoryBean的alias" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="YtkZAcO4TXOXhd_2KU37-2">
           <mxGeometry x="475" y="260" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="qdsk7HPe0d01D8mTmjCl-13" value="&lt;pre style=&quot;background-color: #282c34 ; color: #abb2bf ; font-family: &amp;quot;jetbrains mono&amp;quot; , monospace ; font-size: 9.8pt&quot;&gt;&lt;span style=&quot;color: #e06c75&quot;&gt;alreadyCreated&lt;/span&gt;&lt;/pre&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="YtkZAcO4TXOXhd_2KU37-2">
-          <mxGeometry x="465" y="540" width="120" height="60" as="geometry" />
-        </mxCell>
         <mxCell id="YtkZAcO4TXOXhd_2KU37-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="YtkZAcO4TXOXhd_2KU37-22" target="YtkZAcO4TXOXhd_2KU37-33" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
@@ -177,6 +174,18 @@
         </mxCell>
         <mxCell id="YtkZAcO4TXOXhd_2KU37-67" value="&lt;span style=&quot;font-size: 14px&quot;&gt;重要的方法&lt;br&gt;1.初始化普通的Bean（循环依赖解决）&lt;br&gt;2.&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=#314354;fillColor=#647687;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#ffffff;" parent="1" vertex="1">
           <mxGeometry x="-660" y="940" width="557" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsk7HPe0d01D8mTmjCl-15" value="&lt;pre style=&quot;background-color: #282c34 ; color: #abb2bf ; font-family: &amp;quot;jetbrains mono&amp;quot; , monospace ; font-size: 9.8pt&quot;&gt;&lt;span style=&quot;color: #e06c75&quot;&gt;alreadyCreated&lt;/span&gt;&lt;/pre&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="840" y="1050" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsk7HPe0d01D8mTmjCl-16" value="&lt;pre style=&quot;background-color: #282c34 ; color: #abb2bf ; font-family: &amp;quot;jetbrains mono&amp;quot; , monospace ; font-size: 9.8pt&quot;&gt;&lt;span style=&quot;color: #e06c75&quot;&gt;singletonsCurrentlyInCreation&lt;/span&gt;&lt;/pre&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="840" y="1135" width="230" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsk7HPe0d01D8mTmjCl-17" value="&lt;pre style=&quot;background-color: rgb(40 , 44 , 52)&quot;&gt;&lt;font color=&quot;#c679dd&quot; face=&quot;jetbrains mono, monospace&quot;&gt;&lt;span style=&quot;font-size: 13.0667px&quot;&gt;&lt;i&gt;当前正在创建的 bean 的名称。&lt;/i&gt;&lt;/span&gt;&lt;span style=&quot;font-size: 9.8pt&quot;&gt;&lt;i&gt;&lt;br&gt;&lt;/i&gt;&lt;/span&gt;&lt;/font&gt;&lt;/pre&gt;&lt;pre style=&quot;background-color: #282c34 ; color: #abb2bf ; font-family: &amp;#34;jetbrains mono&amp;#34; , monospace ; font-size: 9.8pt&quot;&gt;&lt;span style=&quot;color: #c679dd ; font-style: italic&quot;&gt;private final &lt;/span&gt;&lt;span style=&quot;color: #98c379 ; font-style: italic&quot;&gt;Set&lt;/span&gt;&lt;span style=&quot;color: #61afef&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&quot;color: #e5c17c&quot;&gt;String&lt;/span&gt;&lt;span style=&quot;color: #61afef&quot;&gt;&amp;gt; &lt;/span&gt;&lt;span style=&quot;color: #e06c75&quot;&gt;singletonsCurrentlyInCreation &lt;/span&gt;&lt;span style=&quot;color: #61afef&quot;&gt;=&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;color: #61afef&quot;&gt; &lt;/span&gt;&lt;span style=&quot;color: #e5c17c&quot;&gt;Collections&lt;/span&gt;&lt;span style=&quot;color: #a6b2c0&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: #61aeef ; font-style: italic&quot;&gt;newSetFromMap&lt;/span&gt;&lt;span style=&quot;color: #a6b2c0&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: #c679dd ; font-style: italic&quot;&gt;new &lt;/span&gt;&lt;span style=&quot;color: #61aeef&quot;&gt;ConcurrentHashMap&lt;/span&gt;&lt;span style=&quot;color: #61afef&quot;&gt;&amp;lt;&amp;gt;&lt;/span&gt;&lt;span style=&quot;color: #a6b2c0&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: #d19a66&quot;&gt;16&lt;/span&gt;&lt;span style=&quot;color: #a6b2c0&quot;&gt;));&lt;/span&gt;&lt;/pre&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="1370" width="400" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsk7HPe0d01D8mTmjCl-18" value="&lt;pre style=&quot;background-color: rgb(40 , 44 , 52)&quot;&gt;&lt;font color=&quot;#c679dd&quot; face=&quot;jetbrains mono, monospace&quot;&gt;&lt;span style=&quot;font-size: 13.0667px&quot;&gt;&lt;i&gt;早期单例对象的缓存：bean 名称到 bean 实例。&lt;/i&gt;&lt;/span&gt;&lt;span style=&quot;font-size: 9.8pt&quot;&gt;&lt;i&gt;&lt;br&gt;&lt;/i&gt;&lt;/span&gt;&lt;/font&gt;&lt;/pre&gt;&lt;pre style=&quot;background-color: #282c34 ; color: #abb2bf ; font-family: &amp;#34;jetbrains mono&amp;#34; , monospace ; font-size: 9.8pt&quot;&gt;&lt;span style=&quot;color: #c679dd ; font-style: italic&quot;&gt;private final &lt;/span&gt;&lt;span style=&quot;color: #98c379 ; font-style: italic&quot;&gt;Map&lt;/span&gt;&lt;span style=&quot;color: #61afef&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&quot;color: #e5c17c&quot;&gt;String&lt;/span&gt;&lt;span style=&quot;color: #a6b2c0&quot;&gt;, &lt;/span&gt;&lt;span style=&quot;color: #e5c17c&quot;&gt;Object&lt;/span&gt;&lt;span style=&quot;color: #61afef&quot;&gt;&amp;gt; &lt;/span&gt;&lt;span style=&quot;color: #e06c75&quot;&gt;earlySingletonObjects &lt;/span&gt;&lt;span style=&quot;color: #61afef&quot;&gt;= &lt;/span&gt;&lt;span style=&quot;color: #c679dd ; font-style: italic&quot;&gt;new &lt;/span&gt;&lt;span style=&quot;color: #61aeef&quot;&gt;ConcurrentHashMap&lt;/span&gt;&lt;span style=&quot;color: #61afef&quot;&gt;&amp;lt;&amp;gt;&lt;/span&gt;&lt;span style=&quot;color: #a6b2c0&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: #d19a66&quot;&gt;16&lt;/span&gt;&lt;span style=&quot;color: #a6b2c0&quot;&gt;);&lt;/span&gt;&lt;/pre&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="1270" width="610" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
