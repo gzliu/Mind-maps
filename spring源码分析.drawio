@@ -1,9 +1,12 @@
-<mxfile host="app.diagrams.net" modified="2022-05-05T10:18:57.165Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36" version="17.5.0" etag="0r4n31OMfZSWKwWwNGmA" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2022-05-05T10:22:36.512Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36" version="17.5.0" etag="mGrY0La2H-KVjl6jv5MV" type="github" pages="5">
   <diagram id="OuHKB4TpfspXbUNequrL" name="总图">
     <mxGraphModel dx="2181" dy="1895" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="qdsk7HPe0d01D8mTmjCl-26" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="415" y="1740" width="210" height="350" as="geometry" />
+        </mxCell>
         <mxCell id="YtkZAcO4TXOXhd_2KU37-2" value="" style="group" parent="1" vertex="1" connectable="0" treatAsSingle="0">
           <mxGeometry x="-85" y="-40" width="1395" height="1050" as="geometry" />
         </mxCell>
@@ -196,17 +199,20 @@
         <mxCell id="qdsk7HPe0d01D8mTmjCl-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="qdsk7HPe0d01D8mTmjCl-21" target="qdsk7HPe0d01D8mTmjCl-22">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qdsk7HPe0d01D8mTmjCl-21" value="&lt;pre style=&quot;background-color: #282c34 ; color: #abb2bf ; font-family: &amp;quot;jetbrains mono&amp;quot; , monospace ; font-size: 9.8pt&quot;&gt;&lt;span style=&quot;color: #e06c75&quot;&gt;singletonObjects&lt;/span&gt;&lt;/pre&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="450" y="1830" width="140" height="60" as="geometry" />
+        <mxCell id="qdsk7HPe0d01D8mTmjCl-21" value="&lt;pre style=&quot;background-color: #282c34 ; color: #abb2bf ; font-family: &amp;#34;jetbrains mono&amp;#34; , monospace ; font-size: 9.8pt&quot;&gt;&lt;span style=&quot;color: #e06c75&quot;&gt;singletonObjects&lt;/span&gt;&lt;/pre&gt;" style="text;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="435" y="1830" width="155" height="60" as="geometry" />
         </mxCell>
         <mxCell id="qdsk7HPe0d01D8mTmjCl-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="qdsk7HPe0d01D8mTmjCl-22" target="qdsk7HPe0d01D8mTmjCl-23">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="qdsk7HPe0d01D8mTmjCl-22" value="&lt;pre style=&quot;background-color: #282c34 ; color: #abb2bf ; font-family: &amp;quot;jetbrains mono&amp;quot; , monospace ; font-size: 9.8pt&quot;&gt;&lt;span style=&quot;color: #e06c75&quot;&gt;earlySingletonObjects&lt;/span&gt;&lt;/pre&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="435" y="1920" width="170" height="60" as="geometry" />
+          <mxGeometry x="435" y="1920" width="155" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="qdsk7HPe0d01D8mTmjCl-23" value="&lt;pre style=&quot;background-color: #282c34 ; color: #abb2bf ; font-family: &amp;quot;jetbrains mono&amp;quot; , monospace ; font-size: 9.8pt&quot;&gt;&lt;span style=&quot;color: #e06c75&quot;&gt;singletonFactories&lt;/span&gt;&lt;/pre&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="445" y="2010" width="150" height="60" as="geometry" />
+        <mxCell id="qdsk7HPe0d01D8mTmjCl-23" value="&lt;pre style=&quot;background-color: #282c34 ; color: #abb2bf ; font-family: &amp;#34;jetbrains mono&amp;#34; , monospace ; font-size: 9.8pt&quot;&gt;&lt;span style=&quot;color: #e06c75&quot;&gt;singletonFactories&lt;/span&gt;&lt;/pre&gt;" style="text;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="437.5" y="2010" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qdsk7HPe0d01D8mTmjCl-30" value="DefaultSingletonBeanRegistry.&lt;br&gt;getSingleton()" style="text;whiteSpace=wrap;html=1;fontSize=14;fontColor=#000000;align=center;" vertex="1" parent="1">
+          <mxGeometry x="410" y="1760" width="220" height="50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
