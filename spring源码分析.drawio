@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-05-06T14:59:40.607Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36" etag="630nyDCGDLy2lnRLZizD" version="18.0.0" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2022-05-06T15:31:04.581Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36" etag="tfKGxvQaS2NRBUQkIilz" version="18.0.0" type="github" pages="5">
   <diagram id="OuHKB4TpfspXbUNequrL" name="总图">
     <mxGraphModel dx="2443" dy="2254" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -297,8 +297,26 @@
         <mxCell id="qdsk7HPe0d01D8mTmjCl-55" value="&lt;pre style=&quot;font-family: &amp;quot;jetbrains mono&amp;quot;, monospace; font-size: 9.8pt;&quot;&gt;&lt;b&gt;singletonFactory.getObject();&lt;/b&gt;&lt;/pre&gt;" style="whiteSpace=wrap;html=1;fontSize=14;fontColor=#000000;labelBackgroundColor=none;" parent="1" vertex="1">
           <mxGeometry x="445" y="2900" width="120" height="60" as="geometry" />
         </mxCell>
+        <mxCell id="TokMoZJgfWzcvBsYRd3h-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=#000000;" edge="1" parent="1" source="qdsk7HPe0d01D8mTmjCl-57" target="TokMoZJgfWzcvBsYRd3h-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="qdsk7HPe0d01D8mTmjCl-57" value="&lt;pre style=&quot;font-family: consolas, monospace; font-size: 9pt;&quot;&gt;&lt;b&gt;AbstractAutowireCapableBeanFactory.createBean()&lt;/b&gt;&lt;/pre&gt;" style="whiteSpace=wrap;html=1;fontSize=14;fontColor=#000000;labelBackgroundColor=none;" parent="1" vertex="1">
           <mxGeometry x="445" y="3040" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="TokMoZJgfWzcvBsYRd3h-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=#000000;" edge="1" parent="1" source="TokMoZJgfWzcvBsYRd3h-3" target="TokMoZJgfWzcvBsYRd3h-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TokMoZJgfWzcvBsYRd3h-3" value="&lt;pre style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; font-size: 12pt;&quot;&gt;&lt;b&gt;createBeanInstance(beanName, mbd, args);&lt;/b&gt;&lt;/pre&gt;" style="whiteSpace=wrap;html=1;fontSize=14;fontColor=#000000;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="445" y="3180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="TokMoZJgfWzcvBsYRd3h-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=#000000;" edge="1" parent="1" source="TokMoZJgfWzcvBsYRd3h-5" target="TokMoZJgfWzcvBsYRd3h-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TokMoZJgfWzcvBsYRd3h-5" value="&lt;pre style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; font-size: 12pt;&quot;&gt;&lt;b&gt;applyMergedBeanDefinitionPostProcessors&lt;/b&gt;&lt;/pre&gt;" style="whiteSpace=wrap;html=1;fontSize=14;fontColor=#000000;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="445" y="3320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="TokMoZJgfWzcvBsYRd3h-7" value="&lt;pre style=&quot;background-color:#282c34;color:#bbbbbb;font-family:&#39;JetBrains Mono&#39;,monospace;font-size:12.0pt;&quot;&gt;&lt;span style=&quot;color:#61afef;&quot;&gt;addSingletonFactory&lt;/span&gt;&lt;/pre&gt;" style="whiteSpace=wrap;html=1;fontSize=14;fontColor=#000000;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="445" y="3460" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
