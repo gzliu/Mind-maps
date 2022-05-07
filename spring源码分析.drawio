@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-05-06T15:31:04.581Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36" etag="tfKGxvQaS2NRBUQkIilz" version="18.0.0" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2022-05-07T01:59:48.165Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36" etag="vfGtHEfL3GhgdpyUSmT1" version="18.0.1" type="github" pages="5">
   <diagram id="OuHKB4TpfspXbUNequrL" name="总图">
-    <mxGraphModel dx="2443" dy="2254" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1808" dy="1695" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -265,7 +265,7 @@
           <mxGeometry x="430" y="2340" width="150" height="60" as="geometry" />
         </mxCell>
         <mxCell id="qdsk7HPe0d01D8mTmjCl-45" value="&lt;font style=&quot;font-size: 14px&quot;&gt;转换成rootbeandefinition对象&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=14;fontColor=#000000;" parent="1" vertex="1">
-          <mxGeometry x="140" y="2355" width="180" height="30" as="geometry" />
+          <mxGeometry x="140" y="2308" width="180" height="30" as="geometry" />
         </mxCell>
         <mxCell id="qdsk7HPe0d01D8mTmjCl-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=14;fontColor=#000000;" parent="1" source="qdsk7HPe0d01D8mTmjCl-46" target="qdsk7HPe0d01D8mTmjCl-51" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -297,26 +297,38 @@
         <mxCell id="qdsk7HPe0d01D8mTmjCl-55" value="&lt;pre style=&quot;font-family: &amp;quot;jetbrains mono&amp;quot;, monospace; font-size: 9.8pt;&quot;&gt;&lt;b&gt;singletonFactory.getObject();&lt;/b&gt;&lt;/pre&gt;" style="whiteSpace=wrap;html=1;fontSize=14;fontColor=#000000;labelBackgroundColor=none;" parent="1" vertex="1">
           <mxGeometry x="445" y="2900" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="TokMoZJgfWzcvBsYRd3h-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=#000000;" edge="1" parent="1" source="qdsk7HPe0d01D8mTmjCl-57" target="TokMoZJgfWzcvBsYRd3h-3">
+        <mxCell id="TokMoZJgfWzcvBsYRd3h-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=#000000;" parent="1" source="qdsk7HPe0d01D8mTmjCl-57" target="TokMoZJgfWzcvBsYRd3h-3" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qdsk7HPe0d01D8mTmjCl-57" value="&lt;pre style=&quot;font-family: consolas, monospace; font-size: 9pt;&quot;&gt;&lt;b&gt;AbstractAutowireCapableBeanFactory.createBean()&lt;/b&gt;&lt;/pre&gt;" style="whiteSpace=wrap;html=1;fontSize=14;fontColor=#000000;labelBackgroundColor=none;" parent="1" vertex="1">
+        <mxCell id="qdsk7HPe0d01D8mTmjCl-57" value="&lt;pre style=&quot;font-size: 9pt;&quot;&gt;&lt;b style=&quot;&quot;&gt;&lt;font face=&quot;Verdana&quot;&gt;AbstractAutowireCapableBeanFactory.createBean()&lt;/font&gt;&lt;/b&gt;&lt;/pre&gt;" style="whiteSpace=wrap;html=1;fontSize=14;fontColor=#000000;labelBackgroundColor=none;" parent="1" vertex="1">
           <mxGeometry x="445" y="3040" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="TokMoZJgfWzcvBsYRd3h-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=#000000;" edge="1" parent="1" source="TokMoZJgfWzcvBsYRd3h-3" target="TokMoZJgfWzcvBsYRd3h-5">
+        <mxCell id="TokMoZJgfWzcvBsYRd3h-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=#000000;" parent="1" source="TokMoZJgfWzcvBsYRd3h-3" target="TokMoZJgfWzcvBsYRd3h-5" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="TokMoZJgfWzcvBsYRd3h-3" value="&lt;pre style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; font-size: 12pt;&quot;&gt;&lt;b&gt;createBeanInstance(beanName, mbd, args);&lt;/b&gt;&lt;/pre&gt;" style="whiteSpace=wrap;html=1;fontSize=14;fontColor=#000000;labelBackgroundColor=none;" vertex="1" parent="1">
+        <mxCell id="TokMoZJgfWzcvBsYRd3h-3" value="&lt;pre style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; font-size: 12pt;&quot;&gt;&lt;b&gt;createBeanInstance&lt;/b&gt;&lt;/pre&gt;" style="whiteSpace=wrap;html=1;fontSize=14;fontColor=#000000;labelBackgroundColor=none;" parent="1" vertex="1">
           <mxGeometry x="445" y="3180" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="TokMoZJgfWzcvBsYRd3h-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=#000000;" edge="1" parent="1" source="TokMoZJgfWzcvBsYRd3h-5" target="TokMoZJgfWzcvBsYRd3h-7">
+        <mxCell id="TokMoZJgfWzcvBsYRd3h-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontColor=#000000;" parent="1" source="TokMoZJgfWzcvBsYRd3h-5" target="TokMoZJgfWzcvBsYRd3h-7" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="TokMoZJgfWzcvBsYRd3h-5" value="&lt;pre style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; font-size: 12pt;&quot;&gt;&lt;b&gt;applyMergedBeanDefinitionPostProcessors&lt;/b&gt;&lt;/pre&gt;" style="whiteSpace=wrap;html=1;fontSize=14;fontColor=#000000;labelBackgroundColor=none;" vertex="1" parent="1">
+        <mxCell id="TokMoZJgfWzcvBsYRd3h-5" value="&lt;pre style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; font-size: 12pt;&quot;&gt;&lt;b&gt;applyMergedBeanDefinitionPostProcessors&lt;/b&gt;&lt;/pre&gt;" style="whiteSpace=wrap;html=1;fontSize=14;fontColor=#000000;labelBackgroundColor=none;" parent="1" vertex="1">
           <mxGeometry x="445" y="3320" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="TokMoZJgfWzcvBsYRd3h-7" value="&lt;pre style=&quot;background-color:#282c34;color:#bbbbbb;font-family:&#39;JetBrains Mono&#39;,monospace;font-size:12.0pt;&quot;&gt;&lt;span style=&quot;color:#61afef;&quot;&gt;addSingletonFactory&lt;/span&gt;&lt;/pre&gt;" style="whiteSpace=wrap;html=1;fontSize=14;fontColor=#000000;labelBackgroundColor=none;" vertex="1" parent="1">
+        <mxCell id="TokMoZJgfWzcvBsYRd3h-7" value="&lt;pre style=&quot;font-family: &amp;quot;JetBrains Mono&amp;quot;, monospace; font-size: 12pt;&quot;&gt;&lt;b&gt;addSingletonFactory&lt;/b&gt;&lt;/pre&gt;" style="whiteSpace=wrap;html=1;fontSize=14;fontColor=#000000;labelBackgroundColor=none;" parent="1" vertex="1">
           <mxGeometry x="445" y="3460" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="T-iQtaHb0kxQQnlZRor1-3" value="&lt;p style=&quot;line-height: 0.6;&quot;&gt;&lt;/p&gt;&lt;pre style=&quot;font-size: 11px;&quot;&gt;&lt;br&gt;&lt;/pre&gt;&lt;p&gt;&lt;/p&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Verdana;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="125" y="3185" width="20" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="T-iQtaHb0kxQQnlZRor1-4" value="&lt;div&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;1.初始化BeanWrapper&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;2.执行PropertyEdit逻辑，为Bean设置各种默认的参数值&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 11px;&quot;&gt;3.解析BeanName对应的Class对象&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;fontFamily=Helvetica;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="25" y="3145" width="310" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="T-iQtaHb0kxQQnlZRor1-5" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;fontFamily=Helvetica;fontSize=11;fontColor=#000000;exitX=1.005;exitY=0.655;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="T-iQtaHb0kxQQnlZRor1-4" target="TokMoZJgfWzcvBsYRd3h-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="300" y="3210" as="sourcePoint" />
+            <mxPoint x="350" y="3160" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
