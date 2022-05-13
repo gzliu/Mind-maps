@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-05-13T06:47:21.408Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36" etag="EIChkHRMc1-RYaKLqG4h" version="18.0.3" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2022-05-13T07:38:00.067Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36" etag="kfSiKInVM18giGbmwbcI" version="18.0.3" type="github" pages="5">
   <diagram id="OuHKB4TpfspXbUNequrL" name="总图">
     <mxGraphModel dx="2249" dy="1931" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -133,11 +133,13 @@
         <mxCell id="YtkZAcO4TXOXhd_2KU37-65" value="&lt;span style=&quot;font-size: 14px&quot;&gt;向容器中初始化&lt;/span&gt;&lt;span style=&quot;font-size: 13.0667px&quot;&gt;ApplicationEventMulticaster。用于容器的监听器处理&lt;/span&gt;" style="text;html=1;strokeColor=#314354;fillColor=#647687;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#ffffff;" parent="1" vertex="1">
           <mxGeometry x="-660" y="720" width="557" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="YtkZAcO4TXOXhd_2KU37-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="YtkZAcO4TXOXhd_2KU37-67" target="YtkZAcO4TXOXhd_2KU37-19" edge="1">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="YtkZAcO4TXOXhd_2KU37-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1.008;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="EVrzxPb8i-hVnf5HJvZp-2" target="YtkZAcO4TXOXhd_2KU37-19" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-103" y="965" as="sourcePoint" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="YtkZAcO4TXOXhd_2KU37-67" value="&lt;span style=&quot;font-size: 14px&quot;&gt;重要的方法&lt;br&gt;1.初始化普通的Bean（循环依赖解决）&lt;br&gt;2.&lt;br&gt;&lt;/span&gt;" style="text;html=1;strokeColor=#314354;fillColor=#647687;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#ffffff;" parent="1" vertex="1">
-          <mxGeometry x="-660" y="940" width="557" height="50" as="geometry" />
+        <mxCell id="EVrzxPb8i-hVnf5HJvZp-2" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;重要的方法&lt;/span&gt;&lt;br style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;1.进行依赖注入，创建bean（解决循环依赖），设置bean的properties等&lt;/span&gt;&lt;br style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;2. 调用spring容器提供的扩展接口方法&lt;/span&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-660" y="940" width="460" height="50" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
@@ -331,7 +333,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="3TumbapT0aj4nKYXiK3y" name="初始化Bean的逻辑">
-    <mxGraphModel dx="2324" dy="1971" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2605" dy="2122" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
