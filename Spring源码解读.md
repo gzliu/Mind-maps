@@ -164,7 +164,8 @@ Bean 工厂实现应尽可能支持标准的 bean 生命周期接口。全套初
 	1.DestructionAwareBeanPostProcessors 的postProcessBeforeDestruction方法
 	2.DisposableBean 的destroy
 	3.自定义销毁方法定义
-自从：2001 年 4 月 13 日
+自从：
+2001 年 4 月 13 日
 也可以看看：
 ApplicationContextAwareProcessor.postProcessBeforeInitialization,
 BeanNameAware.setBeanName , 
@@ -247,7 +248,8 @@ ApplicationEventPublisherAware 、 MessageSourceAware和/或
 ApplicationContext接口的 bean。
 实现的接口按照上面提到的顺序得到满足。
 应用程序上下文将自动将其注册到其底层 bean 工厂。应用程序不直接使用它。
-自从：2003 年 10 月 10 日
+自从：
+2003 年 10 月 10 日
 也可以看看：
 EnvironmentAware ， EmbeddedValueResolverAware ， 
 ResourceLoaderAware ， ApplicationEventPublisherAware ， 
@@ -289,7 +291,8 @@ Spring 的ConfigurableListableBeanFactory和BeanDefinitionRegistry接口的默�
 例如参见org.springframework.beans.factory.xml.XmlBeanDefinitionReader 。
 对于org.springframework.beans.factory.ListableBeanFactory接口的替代实现，
 请查看StaticListableBeanFactory ，它管理现有的 bean 实例，而不是基于 bean 定义创建新实例。
-自从：2001 年 4 月 16 日
+自从：
+2001 年 4 月 16 日
 也可以看看：
 registerBeanDefinition ， 
 addBeanPostProcessor ， 
@@ -307,7 +310,8 @@ GenericBeanDefinition 是用于标准 bean 定义目的的一站式商店。
 （后处理器可能对其进行操作，甚至可能重新配置父名称）。
 使用RootBeanDefinition / ChildBeanDefinition ，
 其中父/子关系恰好是预先确定的。
-自从：2.5
+自从：
+2.5
 也可以看看：
 setParentName , RootBeanDefinition , ChildBeanDefinition
 ```
@@ -335,7 +339,8 @@ setParentName , RootBeanDefinition , ChildBeanDefinition
  Web 环境中的等价物是org.springframework.web.context.support.XmlWebApplicationContext 。
 对于应该以可刷新方式读取特殊 bean 定义格式的自定义应用程序上下文实现，请考虑从AbstractRefreshableApplicationContext基类派生。
 自从：
-1.1.2 也可以看看：
+1.1.2
+ 也可以看看：
 registerBeanDefinition , refresh() , 
 org.springframework.beans.factory.xml.XmlBeanDefinitionReader , 
 org.springframework.beans.factory.support.PropertiesBeanDefinitionReader
@@ -677,7 +682,8 @@ FactoryBean是一种程序化契约。实现不应该依赖注释驱动的注入
 
 ```java
 /**
-  All Known Subinterfaces: SmartFactoryBean<T>
+  All Known Subinterfaces:
+ SmartFactoryBean<T>
   实际应用：ListFactoryBean
 */
 public interface FactoryBean<T> {

@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  clickhouse01:
+    image: yandex/clickhouse-server:1.1
+    expose:
+      - "9000"
+    user: root
+    ports:
+      - "9001:9000"
+    volumes:
+      - D:/docker_destktop/shareing_dir/clickhouse/etc:/etc/clickhouse-server
+      - D:/docker_destktop/shareing_dir/clickhouse/data:/var/lib/clickhouse
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+    privileged: true
