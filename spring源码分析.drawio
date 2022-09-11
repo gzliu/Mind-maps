@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-09-11T15:11:57.853Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36" etag="i10gtU9VM7lCG4KXpnO1" version="18.0.1" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2022-09-11T15:22:33.498Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36" etag="I9Sk6tt3h6mCGenBGlBa" version="18.0.1" type="github" pages="5">
   <diagram id="OuHKB4TpfspXbUNequrL" name="总图">
     <mxGraphModel dx="1812" dy="1830" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -448,6 +448,20 @@
         </mxCell>
         <mxCell id="K3Q7agFIHHh4EodL2uIg-59" value="&lt;p style=&quot;line-height: 2.5;&quot;&gt;&lt;/p&gt;&lt;pre style=&quot;&quot;&gt;BeanPostProcessor#postProcessAfterInitialization&lt;br&gt;&lt;/pre&gt;&lt;p&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=18;fontColor=#000000;fontStyle=1" vertex="1" parent="utqd3tQp7yb5_N6eL5hL-1">
           <mxGeometry x="-2760" y="790" width="450" height="61" as="geometry" />
+        </mxCell>
+        <mxCell id="K3Q7agFIHHh4EodL2uIg-61" style="edgeStyle=orthogonalEdgeStyle;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontSize=22;" edge="1" parent="utqd3tQp7yb5_N6eL5hL-1" source="K3Q7agFIHHh4EodL2uIg-60">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-2890" y="655" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="K3Q7agFIHHh4EodL2uIg-60" value="&lt;p style=&quot;line-height: 2.5;&quot;&gt;&lt;/p&gt;&lt;pre style=&quot;&quot;&gt;ApplicationContextAwareProcessor&lt;/pre&gt;&lt;pre style=&quot;&quot;&gt;#postProcessBeforeInitialization&lt;br&gt;&lt;/pre&gt;&lt;p&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=18;fontColor=#ffffff;fontStyle=1;fillColor=#60a917;strokeColor=#2D7600;" vertex="1" parent="utqd3tQp7yb5_N6eL5hL-1">
+          <mxGeometry x="-2765" y="624" width="460" height="61" as="geometry" />
+        </mxCell>
+        <mxCell id="K3Q7agFIHHh4EodL2uIg-63" style="edgeStyle=orthogonalEdgeStyle;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="utqd3tQp7yb5_N6eL5hL-1" source="K3Q7agFIHHh4EodL2uIg-62" target="K3Q7agFIHHh4EodL2uIg-60">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="K3Q7agFIHHh4EodL2uIg-62" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;特殊的一个BeanPostProcessor，用于初始化Aware接口的子类：&lt;br&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;EnvironmentAware，&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;EmbeddedValueResolverAware，&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;ResourceLoaderAware，&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;ApplicationEventPublisherAware，&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;MessageSourceAware，&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;ApplicationContextAware&lt;/span&gt;&lt;br&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=22;" vertex="1" parent="utqd3tQp7yb5_N6eL5hL-1">
+          <mxGeometry x="-2210" y="570" width="430" height="190" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
