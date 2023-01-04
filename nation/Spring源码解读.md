@@ -273,8 +273,8 @@ HierarchicalBeanFactory接口定义了可以获取到父子beanfactory的接口�
     ![Untitled](Spring%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%2033c50b9415e54f3ca03bcfa4fe139a77/Untitled%203.png)
     
 - 2.8.2 BeanFactory与ApplicationContext在功能上的区别
-    
-    
+  
+  
     | Feature | BeanFactory | ApplicationContext |
     | --- | --- | --- |
     | Bean instantiation/wiring(Bean的初始化以及修改） | Y | Y |
@@ -285,7 +285,7 @@ HierarchicalBeanFactory接口定义了可以获取到父子beanfactory的接口�
     internationalization) (便捷访问到MessageSource) | N | Y |
     | Built-in ApplicationEvent publication mechanism(内置容器事件) | N | Y |
 - 2.8.3 代码验证
-    
+  
     ```java
     
     public static void main(String[] args) {
@@ -322,7 +322,7 @@ HierarchicalBeanFactory接口定义了可以获取到父子beanfactory的接口�
     ```
     
 - 2.8.4 BeanFactory接口详细说明
-    
+  
     用于访问Springbean容器的根接口。spring提供的低级容器，它的默认实现：`DefaultListableBeanFactory`
     
     BeanFactory实现应该尽可能支持标准的Bean初始化生命周期(也是spring bean的生命周期)：
@@ -363,7 +363,7 @@ HierarchicalBeanFactory接口定义了可以获取到父子beanfactory的接口�
     |  |  |
     |  |  |
 - 2.8.5 ApplicationContext接口详细说明
-    
+  
     spring提供的高级容器，它包含BeanFactory的方法。
     
     提供以下能力：
@@ -492,7 +492,7 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
 - 一级缓存就能解决循环依赖问题？为什么要引用二级、三级缓存？
     1. 如果只用一级缓存，那么保存到一级缓存中的bean有部分是并未创建完整的spring bean，这不符合spring bean的周期设定，因此引用二级缓存。
     2. 如果一个spring bean引用了一个proxy spring bean，那么这个spring bean引用的应该是一个proxy spring bean，但是在spring中proxy spring bean 应该是在初始化的时候，才创建这个代理，但是由于循环引用问题，因此需要提前初始化好这个代理对象，因此就引入了三级缓存用于区分，以及正确引用为代理对象而不是原有对象。
-        
+       
         ```java
         // AbstractAutowireCapableBeanFactory#doCreateBean
         protected Object doCreateBean(String beanName, RootBeanDefinition mbd, @Nullable Object[] args){
