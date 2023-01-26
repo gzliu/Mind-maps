@@ -276,7 +276,7 @@ HierarchicalBeanFactory接口定义了可以获取到父子beanfactory的接口�
 - 2.8.2 BeanFactory与ApplicationContext在功能上的区别
   
   
-| Feature | BeanFactory | ApplicationContext | 
+| Feature | BeanFactory | ApplicationContext |
 | --- | --- | --- |
 | Bean instantiation/wiring(Bean的初始化以及修改） | Y | Y |
 | Integrated lifecycle management（生命周期管理） | N | Y |
@@ -284,7 +284,7 @@ HierarchicalBeanFactory接口定义了可以获取到父子beanfactory的接口�
 | Automatic BeanFactoryPostProcessor registration(自动注册BeanFactoryPostProcessor) | N | Y |
 | Convenient MessageSource access (for internationalization) (便捷访问到MessageSource) | N | Y |
 | Built-in ApplicationEvent publication mechanism(内置容器事件) | N | Y |
-    
+
 - 2.8.3 代码验证
   
     ```java
@@ -359,7 +359,7 @@ HierarchicalBeanFactory接口定义了可以获取到父子beanfactory的接口�
 | AutowireBeanFactory |  |
 | ListableBeanFactory |  |
 | ConfigurableBeanFactory |  |
-    
+
 - 2.8.5 ApplicationContext接口详细说明
   
     spring提供的高级容器，它包含BeanFactory的方法。
@@ -381,7 +381,7 @@ HierarchicalBeanFactory接口定义了可以获取到父子beanfactory的接口�
 |  |  |
 |  |  |
 |  |  |
-    
+
 
 ### 2.9 循环依赖问题
 
@@ -680,7 +680,7 @@ public class MyDecorator implements BeanDefinitionDecorator {
     }  
 }
 ```
-  
+
  3. spring中xml中配置
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
@@ -704,6 +704,135 @@ public class MyDecorator implements BeanDefinitionDecorator {
  4. 更多可参考：`AopNamespaceHandler`
 
 #### 原理
+
+
+
+**DefaultBeanDefinitionDocumentReader#parseBeanDefinitions()**
+
+```java
+protected void parseBeanDefinitions(Element root, BeanDefinitionParserDelegate delegate) {
+    if (delegate.isDefaultNamespace(root)) {
+        NodeList nl = root.getChildNodes();
+        for (int i = 0; i < nl.getLength(); i++) {
+            Node node = nl.item(i);
+            if (node instanceof Element) {
+                Element ele = (Element) node;
+                if (delegate.isDefaultNamespace(ele)) {
+                    // 判断是否为默认的schema，这里有个扩展点，可以扩展<bean/>标签的属性
+                	// 实现BeanDefinitionDecorator
+                    parseDefaultElement(ele, delegate);
+                }
+                else {
+                    // 如果不是默认的，那么调用自定义的方法
+                    delegate.parseCustomElement(ele);
+                }
+            }
+        }
+    }
+    else {
+        delegate.parseCustomElement(root);
+    }
+}
+
+```
+
+**BeanDefinitionParserDelegate#parseCustomElement**
+
+```java
+
+	public BeanDefinition parseCustomElement(Element ele, @Nullable BeanDefinition containingBd) {
+		String namespaceUri = getNamespaceURI(ele);
+		if (namespaceUri == null) {
+			return null;
+		}
+        // 获取到DefaultNamespaceHandlerResolver类，并执行resolve方法
+		NamespaceHandler handler = this.readerContext.getNamespaceHandlerResolver().resolve(namespaceUri);
+		if (handler == null) {
+			return null;
+		}
+		return handler.parse(ele, new ParserContext(this.readerContext, this, containingBd));
+	}
+
+```
+
+**DefaultNamespaceHandlerResolver#resolve**
+
+```java
+	public NamespaceHandler resolve(String namespaceUri) {
+		// 获取所有的内存中的NamespaceHandler配置，通过加载spring.handles文件中的内容
+		Map<String, Object> handlerMappings = getHandlerMappings();
+		Object handlerOrClassName = handlerMappings.get(namespaceUri);
+		if (handlerOrClassName == null) {
+			return null;
+		}
+		// 如果是一个类，那么直接返回
+		else if (handlerOrClassName instanceof NamespaceHandler) {
+			return (NamespaceHandler) handlerOrClassName;
+		}
+		else {
+			// 通过Sting的class名，初始化，并调用init()方法。通常init()方法会注册自定义标签的解析类
+			String className = (String) handlerOrClassName;
+			try {
+				Class<?> handlerClass = ClassUtils.forName(className, this.classLoader);
+				if (!NamespaceHandler.class.isAssignableFrom(handlerClass)) {
+					// throw exception
+				}
+				NamespaceHandler namespaceHandler = (NamespaceHandler) BeanUtils.instantiateClass(handlerClass);
+                // 调用init()方法。这里边会调用registerBeanDefinitionParser或者registerBeanDefinitionDecorator，用于注册自定义标签解析类。注册过程就是将数据存储在map中
+				namespaceHandler.init();
+				// 加载完后，保存到内存中去
+				handlerMappings.put(namespaceUri, namespaceHandler);
+				return namespaceHandler;
+			}
+			catch (ClassNotFoundException ex) {
+                ....
+			}
+			catch (LinkageError err) {
+                ....
+			}
+		}
+	}
+
+```
+
+**NamespaceHandlerSupport#parse**
+
+```java
+	
+// 保存所有parsers类的map，BeanDefinitionParser用于自定义解析标签
+private final Map<String, BeanDefinitionParser> parsers = new HashMap<>();
+
+// 保存所有decorators类的map
+// BeanDefinitionDecorator用于扩展<bean>标签的属性
+private final Map<String, BeanDefinitionDecorator> decorators = new HashMap<>();
+
+public BeanDefinition parse(Element element, ParserContext parserContext) {
+        // 通过自定义的namespaceHandler中的
+		BeanDefinitionParser parser = findParserForElement(element, parserContext);
+		return (parser != null ? parser.parse(element, parserContext) : null);
+	}
+
+
+private BeanDefinitionParser findParserForElement(Element element, ParserContext parserContext) {
+        // 获取到标签的名称
+		String localName = parserContext.getDelegate().getLocalName(element);
+        // 通过标签的名称，匹配到自定义标签解析类
+		BeanDefinitionParser parser = this.parsers.get(localName);
+		if (parser == null) {
+			parserContext.getReaderContext().fatal(
+					"Cannot locate BeanDefinitionParser for element [" + localName + "]", element);
+		}
+		return parser;
+	}
+
+	// 注册自定义标签中的解析类。在init()方法中注册
+protected final void registerBeanDefinitionParser(String elementName, BeanDefinitionParser parser) {
+		this.parsers.put(elementName, parser);
+	}
+
+```
+
+
 
 
 ### FactoryBean
