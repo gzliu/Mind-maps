@@ -705,7 +705,7 @@ public class MyDecorator implements BeanDefinitionDecorator {
 
 #### 原理
 
-
+1. 源码分析
 
 **DefaultBeanDefinitionDocumentReader#parseBeanDefinitions()**
 
@@ -832,7 +832,13 @@ protected final void registerBeanDefinitionParser(String elementName, BeanDefini
 
 ```
 
+2. 处理流程
 
+![1674748538455](.\Spring源码解读 33c50b9415e54f3ca03bcfa4fe139a77\1674748538455.png)
+
+2. 类图
+
+![1674748245120](.\Spring源码解读 33c50b9415e54f3ca03bcfa4fe139a77\1674748245120.png)
 
 
 ### FactoryBean
