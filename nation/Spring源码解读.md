@@ -8,7 +8,7 @@
 
 ### 2.1 依赖注入/控制反转
 
-依赖注入描述的是对象的创建以及使用的过程。spring创建bean是通过bean的依赖关系来创建，比如创建beanA的时候，会去查找与它相关的注入的bean，并创建。
+依赖注入描述的是对象的创建以及使用的过程。正常使用一个类，声明式new的方式来创建然后依赖使用。而spring是在一个类初始化的时候，去查找它依赖的相关类，并在查找的过程中就将依赖的bean创建好，并放在容器中。当需要使用的时候，从容器中获取即可。
 
 依赖注入的方式有：构造函数、工厂方法、静态工厂方法、setting方法
 
@@ -224,6 +224,7 @@ public interface FactoryBean<T> {
 | ServletConfigAware#setServletConfig |  | ServletContextAwareProcessor#postProcessBeforeInitialization |
 |  |  |  |
 
+
 `ApplicationContextAwareProcessor#postProcessBeforeInitialization`
 
 ![Untitled](Spring%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%2033c50b9415e54f3ca03bcfa4fe139a77/Untitled.png)
@@ -270,20 +271,20 @@ HierarchicalBeanFactory接口定义了可以获取到父子beanfactory的接口�
     - ApplicationContext包含了所有的BeanFactory的方法，ApplicationContext是比BeanFactory更高级的容器。ApplicationContext主要功能有：加载配置文件、class文件的扫描、通过编程方式注册Bean、注解class等等。一般推荐使用GenericApplicationContext、AnnotationConfigApplicationContext来进行容器的自定义
     - BeanFactory为容器的基础接口，抽象定义了一些最基本的功能。如果使用BeanFactory的话，需要自己手动完成容器的全周期
     
-    ![Untitled](Spring%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%2033c50b9415e54f3ca03bcfa4fe139a77/Untitled%203.png)
+    <img src="Spring%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%2033c50b9415e54f3ca03bcfa4fe139a77/Untitled%203.png" alt="Untitled"  />
     
 - 2.8.2 BeanFactory与ApplicationContext在功能上的区别
   
   
-    | Feature | BeanFactory | ApplicationContext |
-    | --- | --- | --- |
-    | Bean instantiation/wiring(Bean的初始化以及修改） | Y | Y |
-    | Integrated lifecycle management（生命周期管理） | N | Y |
-    | Automatic BeanPostProcessor registration（自动注册BeanPostProcessor） | N | Y |
-    | Automatic BeanFactoryPostProcessor registration(自动注册BeanFactoryPostProcessor) | N | Y |
-    | Convenient MessageSource access (for
-    internationalization) (便捷访问到MessageSource) | N | Y |
-    | Built-in ApplicationEvent publication mechanism(内置容器事件) | N | Y |
+| Feature | BeanFactory | ApplicationContext | 
+| --- | --- | --- |
+| Bean instantiation/wiring(Bean的初始化以及修改） | Y | Y |
+| Integrated lifecycle management（生命周期管理） | N | Y |
+| Automatic BeanPostProcessor registration（自动注册BeanPostProcessor） | N | Y |
+| Automatic BeanFactoryPostProcessor registration(自动注册BeanFactoryPostProcessor) | N | Y |
+| Convenient MessageSource access (for internationalization) (便捷访问到MessageSource) | N | Y |
+| Built-in ApplicationEvent publication mechanism(内置容器事件) | N | Y |
+    
 - 2.8.3 代码验证
   
     ```java
@@ -351,17 +352,14 @@ HierarchicalBeanFactory接口定义了可以获取到父子beanfactory的接口�
     
     特殊接口或类说明：
     
-    | 类或接口 | 说明 |
-    | --- | --- |
-    | BeanFactory |  |
-    | HierarchicalBeanFacatory |  |
-    | ConfigurableBeanFactory |  |
-    | AutowireBeanFactory |  |
-    | ListableBeanFactory |  |
-    | ConfigurableBeanFactory |  |
-    |  |  |
-    |  |  |
-    |  |  |
+| 类或接口 | 说明 |
+| --- | --- |
+| HierarchicalBeanFacatory |  |
+| ConfigurableBeanFactory |  |
+| AutowireBeanFactory |  |
+| ListableBeanFactory |  |
+| ConfigurableBeanFactory |  |
+    
 - 2.8.5 ApplicationContext接口详细说明
   
     spring提供的高级容器，它包含BeanFactory的方法。
@@ -376,13 +374,13 @@ HierarchicalBeanFactory接口定义了可以获取到父子beanfactory的接口�
     6. 支持BeanFactory标准生命周期
     7. 支持`ResourceLoaderAware, ApplicationEventPublisherAware and MessageSourceAware`
     
-    | 类或接口 | 说明 |
-    | --- | --- |
-    | AbstractApplicationContext | 抽象类的实现,核心方法refresh()。提供容器初始化的模板方法 |
-    |  |  |
-    |  |  |
-    |  |  |
-    |  |  |
+| 类或接口 | 说明 |
+| --- | --- |
+| AbstractApplicationContext | 抽象类的实现,核心方法refresh()。提供容器初始化的模板方法 |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
     
 
 ### 2.9 循环依赖问题
@@ -524,7 +522,7 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
         ```
         
 
-## 2.10 BeanFactoryBeanPostProcessor和BeanPostProcessor
+### 2.10 BeanFactoryBeanPostProcessor和BeanPostProcessor
 
 > 详情见：AbstractApplicationContext.prepareBeanFactory
 > 
@@ -587,8 +585,7 @@ public interface BeanPostProcessor {
 
 | 类名称 | 说明 |
 | --- | --- |
-| ApplicationContextAwareProcessor | 用于spring容器中的*awre接口的回调 |
-| ServletContextAwareProcessor | 用于spring web容器中的ServletContextAware接口回调 |
+|  ServletContextAwareProcessor|  用于spring web容器中的ServletContextAware接口回调  |
 | ApplicationListenerDetector | 用于给spring容器添加的监听 |
 | InstantiationAwareBeanPostProcessor | BeanPostProcessor的子接口，提供Bean的实例化之前回调，以及实例化之后但是设置属性值事前回调方法 |
 | AutowiredAnnotationBeanPostProcessor | @Autowired 、@Value注解的实现。用于这些注解修饰的属性、setter、配置方法进行bean的依赖注入 |
@@ -596,17 +593,130 @@ public interface BeanPostProcessor {
 | InstantiationAwareBeanPostProcessorAdapter | 抽象类。实现SmartInstantiationAwareBeanPostProcessor  |
 | MergedBeanDefinitionPostProcessor | Post-processor callback interface for merged bean definitions at runtime. BeanPostProcessor implementations may implement this sub-interface in order to post-process the merged bean definition (a processed copy of the original bean definition) that the Spring BeanFactory uses to create a bean instance. |
 | LoadTimeWeaverAwareProcessor | AOP动态加载类实现 |
-|  |  |
+| ApplicationContextAwareProcessor | 用于spring容器中的*awre接口的回调 |
+
 
 ![BeanPostProcessor.png](Spring%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%2033c50b9415e54f3ca03bcfa4fe139a77/BeanPostProcessor.png)
 
-## 2.11 父子容器说明
+### 2.11 自定义标签以及原理
+ #### 自定义标签定义步骤
+    1. 在resource/META-INF下增加文件：
+          spring.handlers（告诉spring标签定义需要加载的类）、
+          spring.schemas（告诉spring标签对应的xsd文件）、
+          my-tag.xsd
 
-## 2.12 InstantiationAwareBeanPostProcessorAdapter
+```xml
+--  （spring.handlers文件内容） 
+--  自定义标签名为：my_tag，spring加载自定义解析类。
+http\://com.guzman.custome/schema/my_tag=com.guzman.spring.mytag.MyTagNameHandler
+
+
+--  （spring.schemas文件内容）
+-- 1. 自定义标签对应的xsd文件存放的地址，如果放在了META-INF文件外，那么http\://com.guzman.custome/schema/my_tag/my-tag.xsd需要能够通过http访问到。
+-- 2. META-INF/my-tag.xsd表示xsd文件所在的路径。
+http\://com.guzman.custome/schema/my_tag/my-tag.xsd=META-INF/my-tag.xsd
+
+-- my-tag.xsd
+
+<?xml version="1.0" encoding="UTF-8"?>  
+<xsd:schema xmlns="http://com.guzman.custome/schema/my_tag"  
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema"  
+         targetNamespace="http://com.guzman.custome/schema/my_tag"  
+         elementFormDefault="qualified" attributeFormDefault="unqualified">  
+   <xsd:element name="scan">  
+      <xsd:complexType>  
+         <xsd:attribute name="base-package" type="xsd:string" use="required"/>  
+      </xsd:complexType>  
+   </xsd:element>  
+   <xsd:element name="change-name">  
+      <xsd:complexType>  
+         <xsd:attribute name="attrName" type="xsd:string" use="required"/>  
+      </xsd:complexType>  
+   </xsd:element>  
+</xsd:schema>
+
+```
+    2. 自定义解析类
+```java
+public class MyTagNameHandler extends NamespaceHandlerSupport {  
+  
+   @Override  
+   public void init() {  
+      registerBeanDefinitionParser("scan",new MyTagParse());  
+      registerBeanDefinitionDecorator("change-name",new MyDecorator());
+   }  
+}
+
+/**
+用于扩展自自定义的标签
+*/
+// 实现BeanDefinitionParser
+// 还可以使用AbstractSingleBeanDefinitionParser、AbstractBeanDefinitionParser，spring抽象了对bean的处理
+public class MyTagParse implements BeanDefinitionParser {  
+   @Override  
+   public BeanDefinition parse(Element element, ParserContext parserContext) {  
+  
+      String basePackage = element.getAttribute("base-package");  
+      System.out.println("====================="+basePackage);  
+      return null;  
+   }  
+}
+
+
+/**
+用于扩展bean标签下的属性
+*/
+public class MyDecorator implements BeanDefinitionDecorator {  
+    @Override  
+    public BeanDefinitionHolder decorate(Node node, BeanDefinitionHolder definition, ParserContext parserContext) {  
+        String name = node.getAttributes().getNamedItem("attrName").getNodeValue();  
+        definition.getBeanDefinition().setAttribute(name,new Tom());  
+        return definition;  
+    }  
+  
+    @Data  
+    public static class Tom {  
+        private String name = "tom";  
+    }  
+}
+```
+  
+ 3. spring中xml中配置
+```xml
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+      -- xmlns:my_tag：在xml中自定义标签的名称；http://com.guzman.custome/schema/my_tag在spring.handlers定义的key
+      xmlns:my_tag="http://com.guzman.custome/schema/my_tag"  
+      xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd  
+      -- 在spring.handlers定义的key
+        http://com.guzman.custome/schema/my_tag 
+      -- 在spring.schemas中定义的key
+        http://com.guzman.custome/schema/my_tag/my-tag.xsd">  
+  
+   <my_tag:scan base-package="com.guzman.annotation"/>  
+   -- 应用于bean标签下的扩展属性
+	<bean name="myTagBean" class="com.guzman.spring.mytag.MyTagBean">  
+	   <my_tag:change-name attrName="tom"/>  
+	</bean>
+</beans>
+```
+ 4. 更多可参考：`AopNamespaceHandler`
+
+#### 原理
+
+
+### FactoryBean
+#### 介绍
+  spring容器中特殊的bean。直译为 工厂bean。用于创建同一类的bean。
+#### 使用
+
+#### 原理
+
 
 ## 3.重要接口说明
 
-### GenericBeanDefinition接口关系（注入容器的普通spring
+### GenericBeanDefinition接口关系（注入容器的普通spring）
 
 ### GenericApplicationContext关系图
 
