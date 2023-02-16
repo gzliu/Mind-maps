@@ -33,7 +33,7 @@
 
 [Flowchart Maker & Online Diagram Software](https://app.diagrams.net/#Hgzliu%2FMind-maps%2Fmain%2Fspring%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.drawio)
 
-![Untitled](Spring%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%2033c50b9415e54f3ca03bcfa4fe139a77/Untitled.jpeg)
+![Untitled](Untitled.jpeg)
 
 ### 2.4 spring容器的加载流程？
 
@@ -115,7 +115,6 @@ FactoryBean是一种程序化契约。实现不应该依赖注释驱动的注入
 
 <aside>
 💡 FactoryBean与spring bean的区别，FactoryBean通过getObject()来向spring容器注入spring bean 。一般FactoryBean不单独使用，而是跟其他的扩展一起使用。可以参考：`SchedulerFactoryBean`
-
 </aside>
 
 ```java
@@ -227,15 +226,15 @@ public interface FactoryBean<T> {
 
 `ApplicationContextAwareProcessor#postProcessBeforeInitialization`
 
-![Untitled](Spring%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%2033c50b9415e54f3ca03bcfa4fe139a77/Untitled.png)
+![Untitled](Untitled.png)
 
 `AbstractAutowireCapableBeanFactory#initializeBean`
 
-![Untitled](Spring%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%2033c50b9415e54f3ca03bcfa4fe139a77/Untitled%201.png)
+![Untitled](Untitled%201.png)
 
 `ServletContextAwareProcessor#postProcessBeforeInitialization`
 
-![Untitled](Spring%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%2033c50b9415e54f3ca03bcfa4fe139a77/Untitled%202.png)
+![Untitled](Untitled%202.png)
 
 ### 2.7 什么是spring BeanFactory？
 
@@ -274,8 +273,6 @@ HierarchicalBeanFactory接口定义了可以获取到父子beanfactory的接口�
     <img src="Spring%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%2033c50b9415e54f3ca03bcfa4fe139a77/Untitled%203.png" alt="Untitled"  />
     
 - 2.8.2 BeanFactory与ApplicationContext在功能上的区别
-  
-  
 | Feature | BeanFactory | ApplicationContext |
 | --- | --- | --- |
 | Bean instantiation/wiring(Bean的初始化以及修改） | Y | Y |
@@ -384,6 +381,9 @@ HierarchicalBeanFactory接口定义了可以获取到父子beanfactory的接口�
 
 
 ### 2.9 循环依赖问题
+
+产生的原因：
+  有两个类，都持有对方的引用。此时就会造成循环依赖的问题。
 
 通过构造函数注入的无法解决循环依赖的问题。原因是通过构造函数创建的bean，输入的参数必须优先注入。这就造成了循环依赖的问题。
 
@@ -496,9 +496,6 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
         protected Object doCreateBean(String beanName, RootBeanDefinition mbd, @Nullable Object[] args){
         ...
         
-        		// 如果有是代理对象，那么提前创建代理对象，并将对象加入到三级缓存中去
-        	 // 如果不是代理对象，那么将对象本身加入到三级缓存中去
-           // 是否需要去提前创建代理对象
         		boolean earlySingletonExposure = (mbd.isSingleton() && this.allowCircularReferences &&
         				isSingletonCurrentlyInCreation(beanName));// 验证是否为当前创建bean
         		if (earlySingletonExposure) {
@@ -506,7 +503,12 @@ protected Object getSingleton(String beanName, boolean allowEarlyReference) {
         				logger.trace("Eagerly caching bean '" + beanName +
         						"' to allow for resolving potential circular references");
         			}
-        			addSingletonFactory(beanName, () -> getEarlyBeanReference(beanName, mbd, bean));// 用于AOP代理
+        			// 放入一个可以返回对象的回调lamda函数，这个函数。并存入到三级缓冲中
+        			// 如果这个类是代理对象，那么返回的将是代理对象，通过调用 SmartInstantiationAwareBeanPostProcessor#getEarlyBeanReference
+        			// 如果不是代理对象，那么返回原对象
+        			
+        			// 用于AOP代理
+        			addSingletonFactory(beanName, () -> getEarlyBeanReference(beanName, mbd, bean));
         		}
         ...
         try {
@@ -548,7 +550,7 @@ public interface BeanFactoryPostProcessor {
 // 3. 此间如果有实现了PriorityOrdered接口，那么根据此接口的实现进行排序
 ```
 
-![BeanFactoryPostProcessor.png](Spring%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%2033c50b9415e54f3ca03bcfa4fe139a77/BeanFactoryPostProcessor.png)
+![BeanFactoryPostProcessor.png](BeanFactoryPostProcessor.png)
 
 目前已知的特殊的BeanFactoryPostProcessor
 
@@ -587,7 +589,7 @@ public interface BeanPostProcessor {
 | --- | --- |
 |  ServletContextAwareProcessor|  用于spring web容器中的ServletContextAware接口回调  |
 | ApplicationListenerDetector | 用于给spring容器添加的监听 |
-| InstantiationAwareBeanPostProcessor | BeanPostProcessor的子接口，提供Bean的实例化之前回调，以及实例化之后但是设置属性值事前回调方法 |
+| InstantiationAwareBeanPostProcessor | BeanPostProcessor的子接口，提供Bean的实例化之前回调，以及实例化之后但是设置属性值事前回调方法。可以改变一个bean的初始化步骤。这就意味着需要自己维护bean的生命周期 |
 | AutowiredAnnotationBeanPostProcessor | @Autowired 、@Value注解的实现。用于这些注解修饰的属性、setter、配置方法进行bean的依赖注入 |
 | SmartInstantiationAwareBeanPostProcessor | 对AutowiredAnnotationBeanPostProcessor的扩展。添加bean最终返回的类型。主要用于spring框架内部的实现 |
 | InstantiationAwareBeanPostProcessorAdapter | 抽象类。实现SmartInstantiationAwareBeanPostProcessor  |
@@ -596,7 +598,7 @@ public interface BeanPostProcessor {
 | ApplicationContextAwareProcessor | 用于spring容器中的*awre接口的回调 |
 
 
-![BeanPostProcessor.png](Spring%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%2033c50b9415e54f3ca03bcfa4fe139a77/BeanPostProcessor.png)
+![BeanPostProcessor.png](BeanPostProcessor.png)
 
 ### 2.11 自定义标签以及原理
  #### 自定义标签定义步骤
@@ -833,23 +835,36 @@ protected final void registerBeanDefinitionParser(String elementName, BeanDefini
 ```
 
 2. 处理流程
-
-![1674748538455](.\Spring源码解读 33c50b9415e54f3ca03bcfa4fe139a77\1674748538455.png)
+![BeanPostProcessor.png](1674748538455.png)
 
 2. 类图
 
-![1674748245120](.\Spring源码解读 33c50b9415e54f3ca03bcfa4fe139a77\1674748245120.png)
+![BeanPostProcessor.png](1674748245120.png)
 
 
-### FactoryBean
+### 2.12 FactoryBean
 #### 介绍
   spring容器中特殊的bean。直译为 工厂bean。用于创建同一类的bean。
 #### 使用
 
 #### 原理
 
+### 2.13 spring中使用的事件驱动
 
-## 3.重要接口说明
+![[spring的事件驱动类图.jpg]]
+
+
+
+## 3. AOP
+
+
+
+
+
+
+
+
+## 4.重要接口说明
 
 ### GenericBeanDefinition接口关系（注入容器的普通spring）
 
@@ -993,29 +1008,25 @@ for (BeanPostProcessor bp : getBeanPostProcessors()) {
 }
 ```
 
-![AutowiredAnnotationBeanPostProcessor.png](Spring%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB%2033c50b9415e54f3ca03bcfa4fe139a77/AutowiredAnnotationBeanPostProcessor.png)
+![AutowiredAnnotationBeanPostProcessor.png](AutowiredAnnotationBeanPostProcessor.png)
 
 总体接口设计图
 
 ## 4.特殊类及接口说明
 
-### 4.1 **BeanFactory**
-
-spring的顶层接口，用于扩展spring
-
-### 4.2 ListableBeanFactory
+### 4.1 ListableBeanFactory
 
 ```java
 由Bean工厂实现的BeanFactory接口的扩展，它可以枚举其所有Bean实例，而不是按照客户端的请求逐个尝试按名称查找Bean。预加载其所有Bean定义的BeanFactory实现(例如基于XML的工厂)可以实现该接口。如果这是一个HierarchicalBeanFactory，则返回值将不考虑任何BeanFactory层次结构，而只与当前工厂中定义的Bean相关。使用BeanFactoryUtils助手类也可以考虑祖先工厂中的Bean。此接口中的方法将仅遵循此工厂的Bean定义。它们将忽略通过其他方式注册的任何单例Bean，例如org.springframework.beans.factory.config.ConfigurableBeanFactory‘s RegisterSingleton方法，但getBeanNamesForType和getBeansOfType除外，它们也将检查此类手动注册的单例Bean。当然，BeanFactory的getBean也允许对这种特殊的Bean进行透明访问。然而，在典型的场景中，所有的Bean都将由外部Bean定义来定义，因此大多数应用程序不需要担心这种区别。注意：除了getBeanDefinitionCount和ContainsBeanDefinition之外，此接口中的方法并不是为频繁调用而设计的。实施可能会很慢。
 ```
 
-### 4.3 HierarchicalBeanFactory
+### 4.2 HierarchicalBeanFactory
 
 ```java
 由Bean工厂实现的子接口，可以是层次结构的一部分。可以在ConfigurableBeanFactory接口中找到Bean工厂的相应setParentBeanFactory方法，该方法允许以可配置的方式设置父级。
 ```
 
-### 4.4 DefaultListableBeanFactory
+### 4.3 DefaultListableBeanFactory
 
 ```java
 Spring 的ConfigurableListableBeanFactory和BeanDefinitionRegistry
@@ -1132,26 +1143,6 @@ public interface InstantiationAwareBeanPostProcessor extends BeanPostProcessor {
 void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException
 ```
 
-### **BeanFactoryPostProcessor**
-
-工厂挂钩，允许自定义修改应用程序上下文的 bean 定义，调整上下文底层 bean 工厂的 bean 属性值。
-
-对于针对覆盖应用程序上下文中配置的 bean 属性的系统管理员的自定义配置文件很有用。有关满足此类配置需求的开箱即用解决方案，请参阅PropertyResourceConfigurer及其具体实现。
-
-BeanFactoryPostProcessor可以与 bean 定义交互和修改，但不能与 bean 实例交互。这样做可能会导致过早的 bean 实例化，违反容器并导致意外的副作用。如果需要 bean 实例交互，请考虑实现BeanPostProcessor 。
-
-注册
-
-ApplicationContext在其 bean 定义中自动检测BeanFactoryPostProcessor bean，并在创建任何其他 bean 之前应用它们。 BeanFactoryPostProcessor也可以通过ConfigurableApplicationContext以编程方式注册。
-
-排序
-
-在ApplicationContext中自动检测到的BeanFactoryPostProcessor bean 将根据org.springframework.core.PriorityOrdered和org.springframework.core.Ordered语义进行排序。相反，使用ConfigurableApplicationContext以编程方式注册的BeanFactoryPostProcessor bean 将按注册顺序应用；对于以编程方式注册的后处理器，将忽略通过实现PriorityOrdered或Ordered接口表达的任何排序语义。此外，对于BeanFactoryPostProcessor bean，不考虑@Order注释。
-
-```java
-void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException
-```
-
 ### ConfigurableListableBeanFactory
 
 大多数可列出的bean工厂要实现的配置接口。除了ConfigurableBeanFactory之外，它还提供了分析和修改 bean 定义以及预实例化单例的工具。
@@ -1192,7 +1183,9 @@ Phased接口用于自定义后的执行顺序
 代码的入口地方：
 
 ```java
-// AbstractApplicationContext.finishRefresh() --> initLifecycleProcessorprotected void finishRefresh() {    // Clear context-level resource caches (such as ASM metadata from scanning).    clearResourceCaches();    // Initialize lifecycle processor for this context.    initLifecycleProcessor();    // Propagate refresh to lifecycle processor first.    getLifecycleProcessor().onRefresh();    // Publish the final event.    publishEvent(new ContextRefreshedEvent(this));    // Participate in LiveBeansView MBean, if active.    LiveBeansView.registerApplicationContext(this);}protected void initLifecycleProcessor() {    ConfigurableListableBeanFactory beanFactory = getBeanFactory();    if (beanFactory.containsLocalBean(LIFECYCLE_PROCESSOR_BEAN_NAME)) {        this.lifecycleProcessor =                beanFactory.getBean(LIFECYCLE_PROCESSOR_BEAN_NAME, LifecycleProcessor.class);        if (logger.isTraceEnabled()) {            logger.trace("Using LifecycleProcessor [" + this.lifecycleProcessor + "]");        }    }    else {        // 初始化DefaultLifecycleProcessor 用于入口执行LifeCycle功能        DefaultLifecycleProcessor defaultProcessor = new DefaultLifecycleProcessor();        defaultProcessor.setBeanFactory(beanFactory);        this.lifecycleProcessor = defaultProcessor;        beanFactory.registerSingleton(LIFECYCLE_PROCESSOR_BEAN_NAME, this.lifecycleProcessor);        if (logger.isTraceEnabled()) {            logger.trace("No '" + LIFECYCLE_PROCESSOR_BEAN_NAME + "' bean, using " +                    "[" + this.lifecycleProcessor.getClass().getSimpleName() + "]");        }    }}
+
+
+
 ```
 
 # 附件

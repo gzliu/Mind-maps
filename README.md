@@ -8,7 +8,7 @@
 
 ## 2. spring源码解析
 + [spring源码环境搭建.md](./spring/spring%E6%BA%90%E7%A0%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.md)
-+ [spring源码分析脑图](./spring/spring%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.drawio)
++ [spring源码分析脑图](./spring/%E6%B5%81%E7%A8%8B%E5%9B%BE/spring%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.drawio)
 + [spring源码解读本地版](./spring/Spring%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB.md)
 + [spring源码解读在线版](https://www.notion.so/Spring-33c50b9415e54f3ca03bcfa4fe139a77)
 
